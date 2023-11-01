@@ -2,7 +2,7 @@
 
 1. Clone the repo using git:
 ```
-$ git clone [https://](https://github.com/NREL/afdd_library.git --branch demo)
+$ git clone https://github.com/NREL/afdd_library.git --branch demo
 ```
 2. Install conda for virtual environment management. Create and activate a new virtual environment.
 ```
