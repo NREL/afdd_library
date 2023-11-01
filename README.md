@@ -18,6 +18,7 @@ $ pip install --upgrade pip
 4. Install the dependencies using pip\
 To set up your environment to run the code, first install all requirements:
 ```
+$ cd afdd_library
 $ pip install -r requirements.txt
 ```
 
