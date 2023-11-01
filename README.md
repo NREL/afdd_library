@@ -16,3 +16,11 @@ To set up your environment to run the code, first install all requirements:
 ```
 $ pip install -r requirements.txt
 ```
+
+## Run Demo
+
+Run the following command to start demo.
+```
+$ cd afdd_library
+$ python main.py
+```
