@@ -58,7 +58,7 @@ class Main:
 
 
 def main(argv=sys.argv):
-    Main(config_path=r'C:\Users\ikim2\OneDrive - NREL\Icksung\Demo-scripts\config.yaml')
+    Main(config_path='./config.yaml')
 
 
 if __name__=="__main__":
