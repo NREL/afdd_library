@@ -26,6 +26,5 @@ $ pip install -r requirements.txt
 
 Run the following command to start demo.
 ```
-$ cd afdd_library
 $ python main.py
 ```
