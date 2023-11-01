@@ -34,8 +34,8 @@ $ python main.py
 After start the `main.py`, the `tag_report.txt` file created in the directory\
 If the point mapping is incorrect, you can update the mapping information through the corresponding file.
 ```
-1. PointMapping/taglookupdate.py
-2. PointMapping/point.yaml
+1. Run PointMapping/taglookupdate.py
+2. Change PointMapping/point.yaml
 ```
 
 1. taglookupdate.py\
