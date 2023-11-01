@@ -28,3 +28,12 @@ Run the following command to start demo.
 ```
 $ python main.py
 ```
+
+## Point Mapping
+
+After start the `main.py`, the `tag_report.txt` file created in the directory\
+If the point mapping is incorrect, you can update the mapping information through the corresponding file.
+```
+1. PointMapping/taglookupdate.py
+2. PointMapping/point.yaml
+```
