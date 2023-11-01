@@ -28,3 +28,17 @@ Run the following command to start demo.
 ```
 $ python main.py
 ```
+
+## Point Mapping
+
+After start the `main.py`, the `tag_report.txt` file created in the directory\
+If the point mapping is incorrect, you can update the mapping information through the corresponding file.
+```
+1. Run PointMapping/taglookupdate.py
+2. Change PointMapping/point.yaml
+```
+
+1. taglookupdate.py\
+   The 'taglookupdate' update information in the BrickSchema module, and the current version of BRICK is 1.3.
+3. point.yaml\
+   The 'point.yaml' file is a configuration file that converts abbreviations or specific reference language into full words.
