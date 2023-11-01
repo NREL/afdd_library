@@ -37,3 +37,7 @@ If the point mapping is incorrect, you can update the mapping information throug
 1. PointMapping/taglookupdate.py
 2. PointMapping/point.yaml
 ```
+
+1. taglookupdate.py
+   
+3. point.yaml
