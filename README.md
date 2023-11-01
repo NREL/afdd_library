@@ -1,17 +1,18 @@
 ## Installation
 
-Create a new conda environment with **python 3.9** or above (only need to do this once):
+1. Install conda for virtual environment management. Create and activate a new virtual environment.
 ```
-$ conda create -y -n afdd_library python=3.9 pip
+$ conda create -y -n afdd_library python=3.10.0
 $ conda activate afdd_library
 ```
 
-Make sure you are using the latest version of `pip`:
+2. Make sure you are using the latest version of `pip`:
 ```
 $ pip install --upgrade pip
 ```
 
-Install the libraries needed for this repository:
+3. Install the dependencies using pip
+To set up your environment to run the code, first install all requirements:
 ```
-$ pip install -e .[dev]
+$ pip install -r requirements.txt
 ```
