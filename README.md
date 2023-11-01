@@ -12,7 +12,7 @@ $ pip install --upgrade pip
 ```
 
 3. Install the dependencies using pip\
-   To set up your environment to run the code, first install all requirements:
+To set up your environment to run the code, first install all requirements:
 ```
 $ pip install -r requirements.txt
 ```
