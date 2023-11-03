@@ -87,24 +87,28 @@ class ExcessOA(object):
         for (key, damper_thr), (key2, oaf_thr) in thresholds:
             if avg_damper > damper_thr:
                 msg = "{}: The OAD should be at the minimum but is significantly higher.".format(ECON4)
-                result = 32.1
+                # result = 32.1
+                result = "Fault"
                 if avg_oaf - self.desired_oaf > oaf_thr:
                     msg = ("{}: The OAD should be at the minimum for ventilation "
                            "but is significantly above that value. Excess outdoor air is "
                            "being provided; This could significantly increase "
                            "heating and cooling costs".format(ECON4))
                     energy = self.energy_impact_calculation(desired_oaf)
-                    result = 34.1
+                    # result = 34.1
+                    result = "Fault"
                     energy_impact.update({key: energy})
             elif avg_oaf - self.desired_oaf > oaf_thr:
                 msg = ("{}: Excess outdoor air is being provided, this could "
                        "increase heating and cooling energy consumption.".format(ECON4))
                 energy = self.energy_impact_calculation(desired_oaf)
-                result = 33.1
+                # result = 33.1
+                result = "Fault"
                 energy_impact.update({key: energy})
             else:
                 msg = ("{}: The calculated OAF is within configured limits.".format(ECON4))
-                result = 30.0
+                # result = 30.0
+                result = "No Fault"
                 energy = 0.0
                 energy_impact.update({key: energy})
             dx_result.log(msg)
@@ -217,10 +221,12 @@ class InsufficientOA(object):
         for sensitivity, threshold in self.ventilation_oaf_threshold.items():
             if self.desired_oaf - avg_oaf > threshold:
                 msg = "{}: Insufficient OA is being provided for ventilation - sensitivity: {}".format(ECON5, sensitivity)
-                result = 43.1
+                # result = 43.1
+                result = "Fault"
             else:
                 msg = "{}: The calculated OAF was within acceptable limits - sensitivity: {}".format(ECON5, sensitivity)
-                result = 40.0
+                # result = 40.0
+                result = "No Fault"
             dx_result.log(msg)
             diagnostic_msg.update({sensitivity: result})
         dx_table = {ECON5 + DX: diagnostic_msg}

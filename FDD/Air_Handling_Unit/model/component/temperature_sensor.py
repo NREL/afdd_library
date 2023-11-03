@@ -87,19 +87,24 @@ class TempSensorDx(object):
             print("sensitivity: {}, threshold: {}".format(sensitivity,threshold))
             if avg_oa_ma > threshold and avg_ra_ma > threshold:
                 msg = ("{}: MAT is less than OAT and RAT - Sensitivity: {}".format(ECON1, sensitivity))
-                result = 1.1
+                # result = 1.1
+                result = "Fault"
+                self.temp_sensor_problem = True
             elif avg_ma_oa > threshold and avg_ma_ra > threshold:
                 msg = ("{}: MAT is greater than OAT and RAT - Sensitivity: {}".format(ECON1, sensitivity))
-                result = 2.1
+                # result = 2.1
+                result = "Fault"
+                self.temp_sensor_problem = True
             else:
                 msg = "{}: No problems were detected - Sensitivity: {}".format(ECON1, sensitivity)
-                result = 0.0
+                # result = 0.0
+                result = "No Fault"
                 self.temp_sensor_problem = False
             dx_result.log(msg)
             diagnostic_msg.update({sensitivity: result})
 
-        if diagnostic_msg["normal"] > 0.0:
-            self.temp_sensor_problem = True
+        # if diagnostic_msg["normal"] > 0.0:
+        #     self.temp_sensor_problem = True
 
         dx_table = {ECON1 + DX: diagnostic_msg}
         print(diagnostic_msg)
@@ -154,10 +159,12 @@ class DamperSensorInconsistencyDx(object):
                 for sensitivity, threshold in self.oat_mat_check.items():
                     if open_damper_check > threshold:
                         msg = "{} - {}: OAT and MAT are inconsistent when OAD is near 100%".format(ECON1, sensitivity)
-                        result = 0.1
+                        # result = 0.1
+                        result = "Fault"
                     else:
                         msg = "{} - {}: OAT and MAT are consistent when OAD is near 100%".format(ECON1, sensitivity)
-                        result = 0.0                       
+                        # result = 0.0
+                        result = "No Fault"
                     diagnostic_msg.update({sensitivity: result})
 
                 dx_result.log(msg)

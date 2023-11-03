@@ -89,18 +89,21 @@ class EconCorrectlyOn(object):
         for (key, damper_thr), (key2, oaf_thr) in thresholds:
             if avg_damper_signal < damper_thr:
                 msg = "{} - {}: {}".format(ECON2, key, self.alg_result_messages[0])
-                result = 11.1
+                # result = 11.1
+                result = "Fault"
                 energy = self.energy_impact_calculation()
                 energy_impact.update({key: energy})
             else:
                 if avg_oaf < oaf_thr:
                     msg = "{} - {}: {} - OAF={}".format(ECON2, key, self.alg_result_messages[2], avg_oaf)
-                    result = 12.1
+                    # result = 12.1
+                    result = "Fault"
                     energy = self.energy_impact_calculation()
                     energy_impact.update({key: energy})
                 else:
                     msg = "{} - {}: {}".format(ECON2, key, self.alg_result_messages[1])
-                    result = 10.0
+                    # result = 10.0
+                    result = "No Fault"
                     energy = 0.0
                     energy_impact.update({key: energy})
             dx_result.log(msg)
@@ -241,12 +244,14 @@ class EconCorrectlyOff(object):
         for sensitivity, threshold in self.excess_damper_threshold.items():
             if avg_damper > threshold:
                 msg = "{} - {}: {}".format(ECON3, sensitivity, self.alg_result_messages[0])
-                result = 21.1
+                # result = 21.1
+                result = "Fault"
                 energy = self.energy_impact_calculation(desired_oaf)
                 energy_impact.update({sensitivity: energy})
             else:
                 msg = "{} - {}: {}".format(ECON3, sensitivity, self.alg_result_messages[1])
-                result = 20.0
+                # result = 20.0
+                result = "No Fault"
                 energy = 0.0
                 energy_impact.update({sensitivity: energy})
             dx_result.log(msg)
