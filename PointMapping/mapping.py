@@ -20,6 +20,7 @@ class PointMapping():
     def resolve(self, q):
         # break query up into potential tags
         limit = int(q.get('limit', 20))
+        print(q)
         tags = map(str.lower, re.split(r'[.:\-_ ]', q.get('query', '')))
         tags = list(tags)
         search = ''

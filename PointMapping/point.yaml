@@ -197,6 +197,9 @@ htgvlv:
 hw:
 - hot
 - water
+ma:
+- mixed
+- air
 mall:
 - mixed
 - air
