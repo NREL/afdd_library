@@ -1,2 +1,10 @@
 *.egg-info*
 *.gguf
+*.json
+models/models--TheBloke--Llama-2-7b-Chat-GGUF/refs/main
+*.bin
+*.model
+*.safetensors
+*.model
+models/models--TheBloke--Llama-2-7B-Chat-GGML/refs/main
+models/models--TheBloke--Llama-2-7B-Chat-GGML/refs/main
