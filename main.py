@@ -6,89 +6,89 @@ import os
 import logging
 import click
 import torch
-from langchain.chains import RetrievalQA
-from langchain.embeddings import HuggingFaceInstructEmbeddings
-from langchain.llms import HuggingFacePipeline
-from langchain.callbacks.streaming_stdout import StreamingStdOutCallbackHandler  # for streaming response
-from langchain.callbacks.manager import CallbackManager
+# from langchain.chains import RetrievalQA
+# from langchain.embeddings import HuggingFaceInstructEmbeddings
+# from langchain.llms import HuggingFacePipeline
+# from langchain.callbacks.streaming_stdout import StreamingStdOutCallbackHandler  # for streaming response
+# from langchain.callbacks.manager import CallbackManager
 
-callback_manager = CallbackManager([StreamingStdOutCallbackHandler()])
+# callback_manager = CallbackManager([StreamingStdOutCallbackHandler()])
 
-from localGPT.prompt_template_utils import get_prompt_template
+# from localGPT.prompt_template_utils import get_prompt_template
 
-from langchain.vectorstores import Chroma
-from transformers import (
-    GenerationConfig,
-    pipeline,
-)
+# from langchain.vectorstores import Chroma
+# from transformers import (
+#     GenerationConfig,
+#     pipeline,
+# )
 
-from localGPT.load_models import (
-    load_quantized_model_gguf_ggml,
-    load_quantized_model_qptq,
-    load_full_model,
-)
+# from localGPT.load_models import (
+#     load_quantized_model_gguf_ggml,
+#     load_quantized_model_qptq,
+#     load_full_model,
+# )
 
-from localGPT.constants import (
-    EMBEDDING_MODEL_NAME,
-    PERSIST_DIRECTORY,
-    MODEL_ID,
-    MODEL_BASENAME,
-    MAX_NEW_TOKENS,
-    MODELS_PATH,
-    CHROMA_SETTINGS
-)
+# from localGPT.constants import (
+#     EMBEDDING_MODEL_NAME,
+#     PERSIST_DIRECTORY,
+#     MODEL_ID,
+#     MODEL_BASENAME,
+#     MAX_NEW_TOKENS,
+#     MODELS_PATH,
+#     CHROMA_SETTINGS
+# )
 
 
-# chose device typ to run on as well as to show source documents.
-@click.command()
-@click.option(
-    "--device_type",
-    default="cuda" if torch.cuda.is_available() else "cpu",
-    type=click.Choice(
-        [
-            "cpu",
-            "cuda",
-            "ipu",
-            "xpu",
-            "mkldnn",
-            "opengl",
-            "opencl",
-            "ideep",
-            "hip",
-            "ve",
-            "fpga",
-            "ort",
-            "xla",
-            "lazy",
-            "vulkan",
-            "mps",
-            "meta",
-            "hpu",
-            "mtia",
-        ],
-    ),
-    help="Device to run on. (Default is cuda)",
-)
-@click.option(
-    "--show_sources",
-    "-s",
-    is_flag=True,
-    help="Show sources along with answers (Default is False)",
-)
-@click.option(
-    "--use_history",
-    "-h",
-    is_flag=True,
-    help="Use history (Default is False)",
-)
-@click.option(
-    "--model_type",
-    default="llama",
-    type=click.Choice(
-        ["llama", "mistral", "non_llama"],
-    ),
-    help="model type, llama, mistral or non_llama",
-)
+# # chose device typ to run on as well as to show source documents.
+# @click.command()
+# @click.option(
+#     "--device_type",
+#     default="cuda" if torch.cuda.is_available() else "cpu",
+#     type=click.Choice(
+#         [
+#             "cpu",
+#             "cuda",
+#             "ipu",
+#             "xpu",
+#             "mkldnn",
+#             "opengl",
+#             "opencl",
+#             "ideep",
+#             "hip",
+#             "ve",
+#             "fpga",
+#             "ort",
+#             "xla",
+#             "lazy",
+#             "vulkan",
+#             "mps",
+#             "meta",
+#             "hpu",
+#             "mtia",
+#         ],
+#     ),
+#     help="Device to run on. (Default is cuda)",
+# )
+# @click.option(
+#     "--show_sources",
+#     "-s",
+#     is_flag=True,
+#     help="Show sources along with answers (Default is False)",
+# )
+# @click.option(
+#     "--use_history",
+#     "-h",
+#     is_flag=True,
+#     help="Use history (Default is False)",
+# )
+# @click.option(
+#     "--model_type",
+#     default="llama",
+#     type=click.Choice(
+#         ["llama", "mistral", "non_llama"],
+#     ),
+#     help="model type, llama, mistral or non_llama",
+# )
 
 
 def _get_class(kls):
@@ -300,7 +300,7 @@ class Main:
 
 
 def main(argv=sys.argv):
-    Main(config_path=r'C:\Users\ikim2\OneDrive - NREL\Icksung\Demo-scripts\config.yaml')
+    Main(config_path=r'config.yaml')
 
 
 if __name__=="__main__":
