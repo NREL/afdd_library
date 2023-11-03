@@ -2,11 +2,11 @@
 
 campus: NREL
 profile:
-  database: './FDD/Dataset/AHU_example.csv'
-  target: 'Air_Handling_Unit.rule_based.economizer'
-  component: 'Air_Handling_Unit'
-  device: 'economizer'
-  model: 'rule_based'
+  database: './FDD/Dataset/FCU_OAD_test.csv'
+  target: 'FCU.machine_learning.oad_svm'
+  component: 'FCU'
+  device: 'oad_svm'
+  model: 'machine_learning'
 pointmapping: 
   config: './PointMapping/point.yaml'
   path: 'PointMapping.mapping.PointMapping'
@@ -36,6 +36,6 @@ application:
     machine_learning:
       oad_svm:
         config: './FDD/FCU/config/oad_svm.yaml'
-        status: train
+        status: test
     hybrid:
       - None

@@ -2,7 +2,7 @@ campus: NREL
 application: FDD.FCU.model.oad_svm.Application
 output_file: ''
 arguments:
-  model_path: "./oad_svm.pkl'"
+  model_path: "./FDD/FCU/model/oad_svm.pkl"
   device_type: FCU
   analysis_name: oad
   sensitivity: default

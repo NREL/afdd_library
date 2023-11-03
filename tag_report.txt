@@ -1,11 +1,14 @@
-{'before': 'Date', 'after': 'Location'}
-{'before': 'Supply Fan Power', 'after': 'Supply_Fan'}
-{'before': 'OAT Sensor', 'after': 'Outside_Air_Temperature_Sensor'}
-{'before': 'RAT Sensor', 'after': 'Return_Air_Temperature_Sensor'}
-{'before': 'MAT Sensor', 'after': 'Mixed_Air_Temperature_Sensor'}
-{'before': 'Outdoor Damper Position SetPoint', 'after': 'Damper_Position_Setpoint'}
-{'before': 'Chiller Power', 'after': 'Chiller'}
-{'before': 'Supply Fan Speed Command', 'after': 'Fan_Speed_Command'}
-{'before': 'Supply Air Temperature Sensor', 'after': 'Supply_Air_Temperature_Sensor'}
-{'before': 'Terminal Box Reheat Valve Position', 'after': 'Valve'}
-{'before': 'Terminal Box Damper Command', 'after': 'Damper_Command'}
+{'before': 'Date', 'after': 'Date_Time'}
+{'before': 'FCU_OA_HUMD', 'after': 'Fan_Coil_Unit'}
+{'before': 'FCU_MA_HUMD', 'after': 'Fan_Coil_Unit'}
+{'before': 'FCU_RA_HUMD', 'after': 'Fan_Coil_Unit'}
+{'before': 'FCU_DA_HUMD', 'after': 'Fan_Coil_Unit'}
+{'before': 'FCU_OAT', 'after': 'Fan_Coil_Unit'}
+{'before': 'FCU_MAT', 'after': 'Fan_Coil_Unit'}
+{'before': 'FCU_RAT', 'after': 'Fan_Coil_Unit'}
+{'before': 'FCU_DAT', 'after': 'Fan_Coil_Unit'}
+{'before': 'FCU_HTG_RWT', 'after': 'Fan_Coil_Unit'}
+{'before': 'FCU_CLG_RWT', 'after': 'Fan_Coil_Unit'}
+{'before': 'RM_TEMP', 'after': 'Point'}
+{'before': 'FCU_DA_CFM', 'after': 'Fan_Coil_Unit'}
+{'before': 'Fault', 'after': 'Fault_Status'}
