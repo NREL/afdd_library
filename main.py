@@ -39,10 +39,11 @@ from localGPT.constants import (
 )
 
 
-device_type = "cuda" if torch.cuda.is_available() else "cpu"
+# device_type = "cuda" if torch.cuda.is_available() else "cpu"
+device_type = "cpu"
 show_sources = False
 use_history = False
-model_type = "llama"
+model_type = "non_llama"
 
 
 def _get_class(kls):
@@ -87,37 +88,37 @@ class Main:
             app_instance.handled_message(message=message)
 
         
-        # logging.info(f"Running on: {device_type}")
-        # logging.info(f"Display Source Documents set to: {show_sources}")
-        # logging.info(f"Use history set to: {use_history}")
+        logging.info(f"Running on: {device_type}")
+        logging.info(f"Display Source Documents set to: {show_sources}")
+        logging.info(f"Use history set to: {use_history}")
 
-        # # check if models directory do not exist, create a new one and store models here.
-        # if not os.path.exists(MODELS_PATH):
-        #     os.mkdir(MODELS_PATH)
+        # check if models directory do not exist, create a new one and store models here.
+        if not os.path.exists(MODELS_PATH):
+            os.mkdir(MODELS_PATH)
 
-        # qa = self.retrieval_qa_pipline(device_type, use_history, promptTemplate_type=model_type)
-        # # Interactive questions and answers
-        # while True:
-        #     query = input("\nEnter a query: ")
-        #     if query == "exit":
-        #         break
-        #     # Get the answer from the chain
-        #     res = qa(query)
-        #     answer, docs = res["result"], res["source_documents"]
+        qa = self.retrieval_qa_pipline(device_type, use_history, promptTemplate_type=model_type)
+        # Interactive questions and answers
+        while True:
+            query = input("\nEnter a query: ")
+            if query == "exit":
+                break
+            # Get the answer from the chain
+            res = qa(query)
+            answer, docs = res["result"], res["source_documents"]
 
-        #     # Print the result
-        #     print("\n\n> Question:")
-        #     print(query)
-        #     print("\n> Answer:")
-        #     print(answer)
+            # Print the result
+            print("\n\n> Question:")
+            print(query)
+            print("\n> Answer:")
+            print(answer)
 
-        #     if show_sources:  # this is a flag that you can set to disable showing answers.
-        #         # # Print the relevant sources used for the answer
-        #         print("----------------------------------SOURCE DOCUMENTS---------------------------")
-        #         for document in docs:
-        #             print("\n> " + document.metadata["source"] + ":")
-        #             print(document.page_content)
-        #         print("----------------------------------SOURCE DOCUMENTS---------------------------")
+            if show_sources:  # this is a flag that you can set to disable showing answers.
+                # # Print the relevant sources used for the answer
+                print("----------------------------------SOURCE DOCUMENTS---------------------------")
+                for document in docs:
+                    print("\n> " + document.metadata["source"] + ":")
+                    print(document.page_content)
+                print("----------------------------------SOURCE DOCUMENTS---------------------------")
 
 
     def create_report(self, message):
