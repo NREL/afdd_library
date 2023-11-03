@@ -6,89 +6,43 @@ import os
 import logging
 import click
 import torch
-# from langchain.chains import RetrievalQA
-# from langchain.embeddings import HuggingFaceInstructEmbeddings
-# from langchain.llms import HuggingFacePipeline
-# from langchain.callbacks.streaming_stdout import StreamingStdOutCallbackHandler  # for streaming response
-# from langchain.callbacks.manager import CallbackManager
+from langchain.chains import RetrievalQA
+from langchain.embeddings import HuggingFaceInstructEmbeddings
+from langchain.llms import HuggingFacePipeline
+from langchain.callbacks.streaming_stdout import StreamingStdOutCallbackHandler  # for streaming response
+from langchain.callbacks.manager import CallbackManager
 
-# callback_manager = CallbackManager([StreamingStdOutCallbackHandler()])
+callback_manager = CallbackManager([StreamingStdOutCallbackHandler()])
 
-# from localGPT.prompt_template_utils import get_prompt_template
+from localGPT.prompt_template_utils import get_prompt_template
 
-# from langchain.vectorstores import Chroma
-# from transformers import (
-#     GenerationConfig,
-#     pipeline,
-# )
+from langchain.vectorstores import Chroma
+from transformers import (
+    GenerationConfig,
+    pipeline,
+)
 
-# from localGPT.load_models import (
-#     load_quantized_model_gguf_ggml,
-#     load_quantized_model_qptq,
-#     load_full_model,
-# )
+from localGPT.load_models import (
+    load_quantized_model_gguf_ggml,
+    load_quantized_model_qptq,
+    load_full_model,
+)
 
-# from localGPT.constants import (
-#     EMBEDDING_MODEL_NAME,
-#     PERSIST_DIRECTORY,
-#     MODEL_ID,
-#     MODEL_BASENAME,
-#     MAX_NEW_TOKENS,
-#     MODELS_PATH,
-#     CHROMA_SETTINGS
-# )
+from localGPT.constants import (
+    EMBEDDING_MODEL_NAME,
+    PERSIST_DIRECTORY,
+    MODEL_ID,
+    MODEL_BASENAME,
+    MAX_NEW_TOKENS,
+    MODELS_PATH,
+    CHROMA_SETTINGS
+)
 
 
-# # chose device typ to run on as well as to show source documents.
-# @click.command()
-# @click.option(
-#     "--device_type",
-#     default="cuda" if torch.cuda.is_available() else "cpu",
-#     type=click.Choice(
-#         [
-#             "cpu",
-#             "cuda",
-#             "ipu",
-#             "xpu",
-#             "mkldnn",
-#             "opengl",
-#             "opencl",
-#             "ideep",
-#             "hip",
-#             "ve",
-#             "fpga",
-#             "ort",
-#             "xla",
-#             "lazy",
-#             "vulkan",
-#             "mps",
-#             "meta",
-#             "hpu",
-#             "mtia",
-#         ],
-#     ),
-#     help="Device to run on. (Default is cuda)",
-# )
-# @click.option(
-#     "--show_sources",
-#     "-s",
-#     is_flag=True,
-#     help="Show sources along with answers (Default is False)",
-# )
-# @click.option(
-#     "--use_history",
-#     "-h",
-#     is_flag=True,
-#     help="Use history (Default is False)",
-# )
-# @click.option(
-#     "--model_type",
-#     default="llama",
-#     type=click.Choice(
-#         ["llama", "mistral", "non_llama"],
-#     ),
-#     help="model type, llama, mistral or non_llama",
-# )
+device_type = "cuda" if torch.cuda.is_available() else "cpu"
+show_sources = False
+use_history = False
+model_type = "llama"
 
 
 def _get_class(kls):
@@ -109,7 +63,6 @@ class Main:
         pointMap = self.config.get("pointmapping")
         pointApp = pointMap['path']
         pointConfig = pointMap['config']
-
         kla = _get_class(pointApp)
         self.mapping = kla(config_path=pointConfig)
 
@@ -124,6 +77,7 @@ class Main:
         self.create_report(tagging)
 
         app = '.'.join(['FDD', profile['component'], profile['model'], 'Application'])
+        print(app)
         kla = _get_class(app)
         app_instance = kla(self.config['application'][profile['component']][profile['model']][profile['device']]['config'])
 
@@ -133,37 +87,37 @@ class Main:
             app_instance.handled_message(message=message)
 
         
-        logging.info(f"Running on: {device_type}")
-        logging.info(f"Display Source Documents set to: {show_sources}")
-        logging.info(f"Use history set to: {use_history}")
+        # logging.info(f"Running on: {device_type}")
+        # logging.info(f"Display Source Documents set to: {show_sources}")
+        # logging.info(f"Use history set to: {use_history}")
 
-        # check if models directory do not exist, create a new one and store models here.
-        if not os.path.exists(MODELS_PATH):
-            os.mkdir(MODELS_PATH)
+        # # check if models directory do not exist, create a new one and store models here.
+        # if not os.path.exists(MODELS_PATH):
+        #     os.mkdir(MODELS_PATH)
 
-        qa = retrieval_qa_pipline(device_type, use_history, promptTemplate_type=model_type)
-        # Interactive questions and answers
-        while True:
-            query = input("\nEnter a query: ")
-            if query == "exit":
-                break
-            # Get the answer from the chain
-            res = qa(query)
-            answer, docs = res["result"], res["source_documents"]
+        # qa = self.retrieval_qa_pipline(device_type, use_history, promptTemplate_type=model_type)
+        # # Interactive questions and answers
+        # while True:
+        #     query = input("\nEnter a query: ")
+        #     if query == "exit":
+        #         break
+        #     # Get the answer from the chain
+        #     res = qa(query)
+        #     answer, docs = res["result"], res["source_documents"]
 
-            # Print the result
-            print("\n\n> Question:")
-            print(query)
-            print("\n> Answer:")
-            print(answer)
+        #     # Print the result
+        #     print("\n\n> Question:")
+        #     print(query)
+        #     print("\n> Answer:")
+        #     print(answer)
 
-            if show_sources:  # this is a flag that you can set to disable showing answers.
-                # # Print the relevant sources used for the answer
-                print("----------------------------------SOURCE DOCUMENTS---------------------------")
-                for document in docs:
-                    print("\n> " + document.metadata["source"] + ":")
-                    print(document.page_content)
-                print("----------------------------------SOURCE DOCUMENTS---------------------------")
+        #     if show_sources:  # this is a flag that you can set to disable showing answers.
+        #         # # Print the relevant sources used for the answer
+        #         print("----------------------------------SOURCE DOCUMENTS---------------------------")
+        #         for document in docs:
+        #             print("\n> " + document.metadata["source"] + ":")
+        #             print(document.page_content)
+        #         print("----------------------------------SOURCE DOCUMENTS---------------------------")
 
 
     def create_report(self, message):
@@ -270,7 +224,7 @@ class Main:
         prompt, memory = get_prompt_template(promptTemplate_type=promptTemplate_type, history=use_history)
 
         # load the llm pipeline
-        llm = load_model(device_type, model_id=MODEL_ID, model_basename=MODEL_BASENAME, LOGGING=logging)
+        llm = self.load_model(device_type, model_id=MODEL_ID, model_basename=MODEL_BASENAME, LOGGING=logging)
 
         if use_history:
             qa = RetrievalQA.from_chain_type(
@@ -305,6 +259,9 @@ def main(argv=sys.argv):
 
 if __name__=="__main__":
     try:
+        logging.basicConfig(
+            format="%(asctime)s - %(levelname)s - %(filename)s:%(lineno)s - %(message)s", level=logging.INFO
+        )
         sys.exit(main())
     except KeyboardInterrupt:
         pass
