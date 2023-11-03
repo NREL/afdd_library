@@ -1,6 +1,11 @@
 import pickle
+import brickschema
 
-with open(r"C:\Users\ikim2\AppData\Local\anaconda3\envs\afdd_library\Lib\site-packages\brickschema\ontologies\1.3\taglookup_origin.pickle", 'rb') as f:
+path = brickschema.__file__.replace('__init__.py', 'ontologies\\1.3\\taglookup.pickle')
+
+print(path)
+
+with open(path, 'rb') as f:
     data = pickle.load(f)
 
 data[('Supply', 'Fan', 'Speed')] = {'Supply_Fan_Speed'}
@@ -24,6 +29,6 @@ data[('Rm', 'Temperature')] = {'Room_Temperature'}
 data[('label')] = {'Fault'}
 
 
-with open(r"C:\Users\ikim2\AppData\Local\anaconda3\envs\afdd_library\Lib\site-packages\brickschema\ontologies\1.3\taglookup.pickle", 'wb') as d:
+with open(path, 'wb') as d:
     pickle.dump(data, d)
 
