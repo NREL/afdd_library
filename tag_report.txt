@@ -1,0 +1,11 @@
+{'before': 'Date', 'after': 'Date_Time'}
+{'before': 'Supply Fan Power', 'after': 'Supply_Fan_Power'}
+{'before': 'OAT Sensor', 'after': 'Outside_Air_Temperature_Sensor'}
+{'before': 'RAT Sensor', 'after': 'Return_Air_Temperature_Sensor'}
+{'before': 'MAT Sensor', 'after': 'Mixed_Air_Temperature_Sensor'}
+{'before': 'Outdoor Damper Position SetPoint', 'after': 'Damper_Position_Setpoint'}
+{'before': 'Chiller Power', 'after': 'Chiller_Power'}
+{'before': 'Supply Fan Speed Command', 'after': 'Supply_Fan_Speed'}
+{'before': 'Supply Air Temperature Sensor', 'after': 'Supply_Air_Temperature_Sensor'}
+{'before': 'Terminal Box Reheat Valve Position', 'after': 'Valve'}
+{'before': 'Terminal Box Damper Command', 'after': 'Damper_Command'}

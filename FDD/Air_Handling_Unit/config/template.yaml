@@ -1,0 +1,30 @@
+campus: NREL
+application: FDD.Air_Handling_Unit.model.template.Application
+output_file: ''
+arguments:
+  analysis_name: template
+  point_mapping:
+    supply_fan_status: Supply_Fan_Power
+    outdoor_air_temperature: Outside_Air_Temperature_Sensor
+    return_air_temperature: Return_Air_Temperature_Sensor
+    mixed_air_temperature: Mixed_Air_Temperature_Sensor
+    outdoor_damper_signal: Damper_Position_Setpoint
+    cool_call: Chiller_Power
+    timestamp: Date_Time
+  threshold:
+    data_window: 15
+conversion_map:
+  .*Temperature: float
+  .*Command: float
+  .*Signal: float
+  .*SetPoint: float
+  .*Status: int
+  .*Speed: float
+  Cooling.*: float
+  Damper*.: float
+  Heating*.: float
+  DuctStatic*.: float
+  SupplyFanStatus: int
+  SupplyFanSpeed: int
+  OutdoorDamperSignal: float
+  CoolingCall: float

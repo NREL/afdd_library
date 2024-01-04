@@ -1,0 +1,49 @@
+# status : [train, test, real-time]
+
+campus: NREL
+profile:
+  # # FCU FDD Simulation
+  # database: './FDD/Dataset/FCU_OAD_test.csv'
+  # target: 'FCU.machine_learning.oad_svm'
+  # component: 'FCU'
+  # device: 'oad_svm'
+  # model: 'machine_learning'
+
+  # AHU FDD Simulation
+  database: './FDD/Dataset/AHU_example.csv'
+  target: 'Air_Handling_Unit.rule_based.economizer'
+  component: 'Air_Handling_Unit'
+  device: 'economizer'
+  model: 'rule_based'
+pointmapping: 
+  config: './PointMapping/point.yaml'
+  path: 'PointMapping.mapping.PointMapping'
+application:
+  Air_Handling_Unit:
+    rule_based:
+      economizer:
+        config: './FDD/Air_Handling_Unit/config/economizer.yaml'
+        status: test # train/test is not supported
+      template:
+        config: './FDD/Air_Handling_Unit/config/template.yaml'
+        status: test
+    machine_learning:
+      - None
+    hybrid:
+      - None
+  Chiller:
+    rule_based:
+      - None
+    machine_learning:
+      - None
+    hybrid:
+      - None
+  FCU:
+    rule_based:
+      - None
+    machine_learning:
+      oad_svm:
+        config: './FDD/FCU/config/oad_svm.yaml'
+        status: test
+    hybrid:
+      - None

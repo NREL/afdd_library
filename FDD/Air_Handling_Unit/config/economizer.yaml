@@ -1,0 +1,51 @@
+campus: NREL
+application: FDD.Air_Handling_Unit.model.economizer.Application
+output_file: ''
+arguments:
+  device_type: AHU
+  analysis_name: economizer
+  economizer_type: DDB
+  sensitivity: default
+  point_mapping:
+    supply_fan_status: Supply_Fan_Power
+    outdoor_air_temperature: Outside_Air_Temperature_Sensor
+    return_air_temperature: Return_Air_Temperature_Sensor
+    mixed_air_temperature: Mixed_Air_Temperature_Sensor
+    outdoor_damper_signal: Damper_Position_Setpoint
+    cool_call: Chiller_Power
+    timestamp: Date_Time
+  threshold:
+    data_window: 15
+    no_required_data: 1
+    open_damper_time: 0
+    low_supply_fan_threshold: 20.0
+    mat_low_threshold: 30.0
+    mat_high_threshold: 150.0
+    oat_low_threshold: 30.0
+    oat_high_threshold: 150.0
+    rat_low_threshold: 30.0
+    rat_high_threshold: 150.0
+    temp_difference_threshold: 4.0
+    open_damper_threshold: 90.0
+    oaf_temperature_threshold: 4.0
+    cooling_enabled_threshold: 5.0
+    minimum_damper_setpoint: 60.0
+    desired_oaf: 10.0
+    rated_cfm: 1000
+    eer: 10
+    temp_band: 1
+conversion_map:
+  .*Temperature: float
+  .*Command: float
+  .*Signal: float
+  .*SetPoint: float
+  .*Status: int
+  .*Speed: float
+  Cooling.*: float
+  Damper*.: float
+  Heating*.: float
+  DuctStatic*.: float
+  SupplyFanStatus: int
+  SupplyFanSpeed: int
+  OutdoorDamperSignal: float
+  CoolingCall: float

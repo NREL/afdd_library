@@ -1,0 +1,525 @@
+acact:
+- autocalibration
+- in
+- process
+acreq:
+- autocalibration
+- required
+ahu:
+- air
+- handler
+- unit
+ahu01:
+- air
+- handler
+- unit
+ahusp:
+- calculated
+- discharge
+- setpoint
+autocal:
+- autocalibration
+avg:
+- average
+bhoutput:
+- box
+- heat
+- output
+boxelec:
+- electrical
+- heat
+- protection
+- enabled
+boxhtgc:
+- box
+- heating
+- command
+boxmode:
+- current
+- box
+- mode
+cfm:
+- flow
+chw:
+- chilled
+- water
+clgbias:
+- active
+- cooling
+- bias
+clgo:
+- cooling
+- valve
+- analog
+- signal
+clgocc:
+- occ
+- cooling
+cmaxflo:
+- maximum
+- cooling
+- cfm
+- setpoint
+cmd:
+- command
+commonsp:
+- common
+- setpoint
+ctl:
+- control
+da:
+- discharge
+- air
+dap:
+- discharge
+- air
+- pressure
+dat:
+- discharge
+- air
+- temperature
+date:
+- date
+- time
+dbswov:
+- economizer
+- switchover
+- setpoint
+dcdb:
+- discharge
+- cooling
+- deadband
+dcit:
+- discharge
+- cooling
+- intergration
+dcpb:
+- discharge
+- cooling
+- proportional
+- band
+depb:
+- discharge
+- economizer
+- proportional
+- band
+df:
+- discharge
+- fan
+dhdb:
+- discharge
+- heating
+- dead
+- band
+dis:
+- discharge
+disrb:
+- discharge
+- reset
+- band
+dll:
+- discharge
+- low
+- limit
+dmp:
+- damper
+ea:
+- exhaust
+- air
+eap:
+- exhaust
+- air
+- pressure
+eat:
+- exhaust
+- air
+- temperature
+econs:
+- economizer
+- status
+ef:
+- exhaust
+- fan
+effclg:
+- effective
+- cooling
+- setpoint
+effhtg:
+- effective
+- heating
+- setpoint
+elec:
+- electrical
+equip:
+- equipment
+ex:
+- exhaust
+fcu:
+- fan
+- coil
+- unit
+freq:
+- frequency
+htgbias:
+- active
+- heating
+- bias
+htgminfl:
+- heating
+- minimum
+- cfm
+- setpoint
+htgmode:
+- current
+- heating
+- mode
+htgo:
+- heating
+- valve
+- analog
+- signal
+htgocc:
+- occ
+- heating
+- setpoint
+htgoccminflow:
+- occ
+- heating
+- minimum
+- flow
+htgunocc:
+- night
+- heating
+- setpoint
+htgvlv:
+- heating
+- valve
+hw:
+- hot
+- water
+ma:
+- mixed
+- air
+mall:
+- mixed
+- air
+- lowlimit
+- setpoint
+malldb:
+- mixed
+- air
+- low
+- limit
+- dead
+- band
+mallit:
+- mixed
+- air
+- low
+- limit
+- integration
+mallo:
+- mixed
+- air
+- low
+- limit
+- offset
+mallpb:
+- mixed
+- air
+- low
+- limit
+- proportional
+- band
+mat:
+- mixed
+- air
+- temperature
+minpossp:
+- economizer
+- minimum
+- position
+network:
+- network
+- setpoint
+oa:
+- outside
+- air
+oap:
+- outside
+- air
+- pressure
+oat:
+- outside
+- air
+- temperature
+occ:
+- occupied
+occc:
+- occupied
+- command
+occcbias:
+- occupied
+- cooling
+- bias
+occhbias:
+- occupied
+- heating
+- bias
+occhtgfl:
+- occupied
+- heating
+- cfm
+- setpoint
+occs:
+- occupied
+- status
+occsched:
+- occupancy
+- schedule
+ocmncsp:
+- occupied
+- cooling
+- minimum
+- cfm
+- setpoint
+of:
+- outside
+- fan
+onochbia:
+- unoccupied
+- heating
+- bias
+pkupgain:
+- pickup
+- gain
+pos:
+- position
+ra:
+- return
+- air
+rap:
+- return
+- air
+- pressure
+rat:
+- return
+- air
+- temperature
+restasts:
+- status
+- of
+- restart
+- delay
+ret:
+- return
+retrb:
+- return
+- reset
+- band
+rf:
+- return
+- fan
+rfs:
+- return
+- fan
+- status
+rhl:
+- return
+- air
+- high
+- limit
+roof:
+- rooftop
+rtu:
+- rootftop
+- unit
+sa:
+- supply
+- air
+saf:
+- supply
+- airflow
+- rate
+sap:
+- static
+- pressure
+sat:
+- supply
+- air
+- temperature
+sds:
+- smoke
+- detector
+sdwnc:
+- shutdown
+- command
+sdwns:
+- shutdown
+- status
+sf:
+- supply
+- fan
+sfa:
+- supply
+- fan
+- alarm
+sfo:
+- supply
+- fan
+- inlet
+- vane
+- vfd
+- signal
+sfs:
+- supply
+- fan
+- status
+shoutput:
+- supplemental
+- heat
+- output
+shtgc:
+- supplemental
+- heating
+- command
+smk:
+- smoke
+- detector
+sp:
+- setpoint
+spdb:
+- static
+- pressure
+spdw:
+- static
+- pressure
+- derivitive
+- weight
+spit:
+- static
+- pressure
+- integration
+sppb:
+- static
+- pressure
+- proportional
+- band
+sprampst:
+- static
+- pressure
+- output
+- ramp
+spset:
+- static
+- pressure
+- setpoint
+spt:
+- setpoint
+stbycbia:
+- standby
+- cooling
+- bias
+stbyhbia:
+- standby
+- heating
+- bias
+stpt:
+- setpoint
+sup:
+- supply
+supflosp:
+- calculated
+- cfm
+- setpoint
+supflow:
+- cfm
+- supply
+- flow
+swovdif:
+- economizer
+- switchover
+- differential
+t:
+- temperature
+temp:
+- temperature
+tmp:
+- temperature
+ucmncsp:
+- unoccupied
+- cooling
+- minimum
+- cfm
+- setpoint
+ucncdf:
+- unoccupied
+- cooling
+- differential
+ucncsp:
+- unoccupied
+- cooling
+- setpoint
+ucnhdf:
+- unoccupied
+- heating
+- differential
+ucnhsp:
+- unoccupied
+- heating
+- setpoint
+unchmax:
+- unoccupied
+- cooling
+- maximum
+- cfm
+- setpoint
+unocc:
+- unoccupied
+unoccbia:
+- unoccupied
+- cooling
+- bias
+vav:
+- variable
+- volume
+- box
+volt:
+- voltage
+vp:
+- velocity
+- pressure
+wcadj:
+- warm/cool
+- adjust
+wcc:
+- warmup
+- command
+wmupmin:
+- warmup
+- cfm
+- setpoint
+wtrflush:
+- water
+- flush
+- command
+z:
+- zone
+zn:
+- zone
+znt:
+- zone
+- space
+- temperature
+zntsp:
+- zone
+- temperature
+- setpoint
+zoneairtemp:
+- zone
+- air
+- temperature
+zpb:
+- zone
+- proportional
+- band

@@ -1,17 +1,43 @@
 ## Installation
 
-Create a new conda environment with **python 3.9** or above (only need to do this once):
+1. Clone the repo using git:
 ```
-$ conda create -y -n afdd_library python=3.9 pip
+$ git clone https://github.com/NREL/afdd_library.git --branch demo
+```
+2. Install conda for virtual environment management. Create and activate a new virtual environment.
+```
+$ conda create -y -n afdd_library python=3.10.0
 $ conda activate afdd_library
 ```
 
-Make sure you are using the latest version of `pip`:
+3. Make sure you are using the latest version of `pip`:
 ```
 $ pip install --upgrade pip
 ```
 
-Install the libraries needed for this repository:
+4. Install the dependencies using pip\
+To set up your environment to run the code, first install all requirements:
 ```
-$ pip install -e .[dev]
+$ cd afdd_library
+$ pip install -r requirements.txt
 ```
+
+## Run Demo
+
+Run the following command to start demo.
+```
+$ python main.py
+```
+
+## Point Mapping
+
+After start the `main.py`, the `tag_report.txt` file created in the directory\
+If the point mapping is incorrect, you can update the mapping information through the corresponding file.
+```
+$ python PointMapping/taglookupdate.py
+```
+
+1. Run taglookupdate.py\
+   The 'taglookupdate' update information in the BrickSchema module, and the current version of BRICK is 1.3.
+3. Change point.yaml\
+   The 'point.yaml' file is a configuration file that converts abbreviations or specific reference language into full words.
